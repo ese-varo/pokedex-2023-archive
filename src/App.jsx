@@ -5,15 +5,14 @@ import { updateList } from "./features/pokemonSlice";
 import Paginator from "./components/Paginator";
 import PokemonList from "./components/PokemonList";
 
-const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
+export const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 function App() {
   const dispatch = useDispatch();
   const [currentPokemon, setCurrentPokemon] = useState(null);
   const [currentPokemonUrl, setCurrentPokemonUrl] = useState(null);
-  const page = useSelector((state) => state.pokemons.page);
+  const { page, items } = useSelector((state) => state.pokemons);
 
   // oscar.martinez@densitylabs.io
-  // add remove functionality
   // styles improve UI/UX
 
   useEffect(() => {
@@ -51,15 +50,23 @@ function App() {
   return (
     <div className="App">
       <div className="main">
-        <div className="pokemon-details">
-          <img
-            src={
-              currentPokemon ? currentPokemon.sprites.front_default : undefined
-            }
-            alt="Current Pokemon"
-          />
-        </div>
-        <PokemonList onClick={onClick} />
+        {items.length > 0 ? (
+          <>
+            <div className="current-pokemon">
+              <img
+                src={
+                  currentPokemon
+                    ? currentPokemon.sprites.front_default
+                    : undefined
+                }
+                alt="Current Pokemon"
+              />
+            </div>
+            <PokemonList onClick={onClick} />
+          </>
+        ) : (
+          <div>Current page items have been removed! :c</div>
+        )}
       </div>
       <Paginator />
     </div>

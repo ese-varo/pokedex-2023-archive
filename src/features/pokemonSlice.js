@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  results: [],
+  items: [],
   page: 1,
+  archived: [],
 };
 
 export const pokemonSlice = createSlice({
@@ -10,9 +11,12 @@ export const pokemonSlice = createSlice({
   initialState,
   reducers: {
     updateList: (state, action) => {
-      state.results = action.payload.results;
+      const pokemonsWithoutArchived = action.payload.results.filter(
+        (pokemon) => !state.archived.includes(pokemon.name)
+      );
+      state.items = pokemonsWithoutArchived;
       if (state.page === 8) {
-        state.results = action.payload.results.splice(0, 11);
+        state.items = pokemonsWithoutArchived.splice(0, 11);
       }
     },
     incrementPage: (state) => {
@@ -21,9 +25,16 @@ export const pokemonSlice = createSlice({
     decrementPage: (state) => {
       state.page -= 1;
     },
+    archive: (state, action) => {
+      const pokemonsWithoutArchived = state.items.filter(
+        (pokemon) => pokemon.name !== action.payload
+      );
+      state.items = pokemonsWithoutArchived;
+      state.archived.push(action.payload);
+    },
   },
 });
 
-export const { updateList, incrementPage, decrementPage } =
+export const { updateList, incrementPage, decrementPage, archive } =
   pokemonSlice.actions;
 export default pokemonSlice.reducer;

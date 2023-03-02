@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { baseUrl } from "../App";
 
-const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 const PokemonDetails = () => {
   const { pokemonName } = useParams();
   const [pokemon, setPokemon] = useState(null);
@@ -16,7 +16,6 @@ const PokemonDetails = () => {
     };
 
     getPokemon();
-    console.log(pokemon);
   }, [pokemonName]);
 
   if (!pokemon) {
