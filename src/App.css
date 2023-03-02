@@ -112,6 +112,14 @@ header {
   color: #F6F8F8;
   font-size: xx-large;
   margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.details-title-icon {
+  margin-top: 4px;
+  width: 40px;
+  height: 40px;
 }
 
 .details-attribute {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MdCatchingPokemon } from "react-icons/md";
 import { FaBolt, FaRegIdBadge, FaRuler, FaWeight } from "react-icons/fa";
 import { useNavigate, useParams } from "react-router-dom";
 import { baseUrl } from "../App";
@@ -32,7 +33,10 @@ const PokemonDetails = () => {
           imageUrl={pokemon.sprites.front_default}
           name={pokemon.name}
         />
-        <h2 className="details-title">Pokemon Details</h2>
+        <h2 className="details-title">
+          <MdCatchingPokemon className="details-title-icon" />
+          &nbsp;&nbsp;Pokemon Details
+        </h2>
         <section className="details-content">
           <Attribute
             header="Name"
