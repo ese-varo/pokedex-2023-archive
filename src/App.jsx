@@ -4,6 +4,8 @@ import "./App.css";
 import { updateList } from "./features/pokemonSlice";
 import Paginator from "./components/Paginator";
 import PokemonList from "./components/PokemonList";
+import CurrentPokemon from "./components/CurrentPokemon";
+import NotFound from "./components/NotFound";
 
 export const baseUrl = "https://pokeapi.co/api/v2/pokemon/";
 function App() {
@@ -19,7 +21,7 @@ function App() {
     let url = baseUrl;
     if (page !== 1) {
       // implementation to load the corresponding page when user come back from details view
-      // e.g. if user doble click on a pokemon of page 4 when they click on 'go back' button in details view the page 4 is loaded
+      // e.g. if user doble click on a pokemon of page 4 when they click on 'go back' button in the details view the page 4 is loaded again
       const offset = (page - 1) * 20;
       url += `?offset=${offset}&limit=20`;
     }
@@ -52,20 +54,20 @@ function App() {
       <div className="main">
         {items.length > 0 ? (
           <>
-            <div className="current-pokemon">
-              <img
-                src={
-                  currentPokemon
-                    ? currentPokemon.sprites.front_default
-                    : undefined
-                }
-                alt="Current Pokemon"
-              />
-            </div>
+            <CurrentPokemon
+              imageUrl={
+                currentPokemon
+                  ? currentPokemon.sprites.front_default
+                  : undefined
+              }
+            />
             <PokemonList onClick={onClick} />
           </>
         ) : (
-          <div>Current page items have been removed! :c</div>
+          <NotFound
+            title="Current page items have been removed! :c"
+            label="Reload the page to have fresh data"
+          />
         )}
       </div>
       <Paginator />
