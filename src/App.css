@@ -59,6 +59,21 @@ header {
   border-color: transparent;
 }
 
+.not-found {
+  width: 100%;
+}
+
+.not-found-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-icon {
+  width: 3em;
+  height: 3em;
+}
+
 footer {
   display: flex;
   justify-content: center;

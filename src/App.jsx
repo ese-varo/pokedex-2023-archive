@@ -48,7 +48,7 @@ function App() {
     setCurrentPokemonUrl(url);
   }, []);
 
-  if (!currentPokemon) return <NotFound label="Try again later :c" />;
+  if (!currentPokemon) return <NotFound />;
 
   return (
     <div className="App">
@@ -65,7 +65,7 @@ function App() {
           </>
         ) : (
           <NotFound
-            title="Current page items have been removed! :c"
+            title="The items on the current page have been removed!"
             label="Reload the page to have fresh data"
           />
         )}
