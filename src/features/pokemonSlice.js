@@ -1,25 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  count: 0,
-  next: null,
-  previous: null,
   results: [],
-  page: 0,
+  page: 1,
 };
 
 export const pokemonSlice = createSlice({
   name: "pokemons",
   initialState,
   reducers: {
-    update: (state, action) => {
-      state.count = action.payload.count;
-      state.next = action.payload.next;
-      state.previous = action.payload.previous;
+    updateList: (state, action) => {
       state.results = action.payload.results;
+      if (state.page === 8) {
+        state.results = action.payload.results.splice(0, 11);
+      }
+    },
+    incrementPage: (state) => {
+      state.page += 1;
+    },
+    decrementPage: (state) => {
+      state.page -= 1;
     },
   },
 });
 
-export const { update } = pokemonSlice.actions;
+export const { updateList, incrementPage, decrementPage } =
+  pokemonSlice.actions;
 export default pokemonSlice.reducer;
