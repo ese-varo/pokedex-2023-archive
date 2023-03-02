@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 import { decrementPage, incrementPage } from "../features/pokemonSlice";
 
 const Paginator = () => {
@@ -8,11 +9,11 @@ const Paginator = () => {
   return (
     <div className="paginator">
       <button onClick={() => dispatch(decrementPage())} disabled={page < 2}>
-        Previous
+        <FaAngleDoubleLeft />
       </button>
-      <p>page: {page}</p>
+      <p className="paginator-label">{page} of 8</p>
       <button onClick={() => dispatch(incrementPage())} disabled={page > 7}>
-        Next
+        <FaAngleDoubleRight />
       </button>
     </div>
   );

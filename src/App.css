@@ -19,6 +19,9 @@
 .App {
   max-width: 1280px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .main {
@@ -33,9 +36,18 @@
 }
 
 .paginator {
+  border-radius: 4px;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
   display: flex;
+  gap: 1em;
   justify-content: center;
   margin-top: 1rem;
+  width: fit-content;
+}
+
+.paginator > button:hover {
+  background-color: #ECEEF0;
+  border-color: transparent;
 }
 
 .current-pokemon {
