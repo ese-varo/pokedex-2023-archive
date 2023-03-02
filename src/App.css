@@ -24,6 +24,15 @@
   align-items: center;
 }
 
+header {
+  padding: 2em 1em;
+}
+
+.main-logo {
+  max-width: 500px;
+  width: 100%;
+}
+
 .main {
   display: flex;
   align-items: center;
