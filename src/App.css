@@ -2,6 +2,7 @@
   width: 100vw;
   height: 100vh;
   text-align: center;
+  background-color: #F6F8F8;
 }
 
 .layout {
@@ -22,7 +23,6 @@
 
 .main {
   display: flex;
-  background-color: aqua;
   align-items: center;
   margin: 0 auto;
   width: 100%;
@@ -40,6 +40,16 @@
 
 .current-pokemon {
   flex: 2;
+  box-shadow: 0 1px 15px 7px rgb(0 0 0 / 5%);
+}
+
+.card {
+  border: solid 1px #bdc3c7;
+  border-radius: 4px;
+}
+
+.pokemon-thumbnail:hover {
+  box-shadow: 0 1px 15px 7px rgb(0 0 0 / 5%);
 }
 
 .current-pokemon > img {
@@ -59,11 +69,47 @@
 }
 
 .pokemon-thumbnail {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  border: solid 1px blue;
-  width: 100px;
   height: 100px;
+  justify-content: space-evenly;
+  padding: 1rem;
+  width: 100px;
 }
 
+.remove-button {
+  color: #EA6352;
+  width: fit-content;
+}
+
+.details-button {
+  color: #2c3e50;
+  padding: 0.6em 0.5em;
+}
+
+.details-button:hover {
+  background-color: #ECEEF0;
+  border-color: transparent;
+}
+
+.details-button:active {
+  border-color: #909CA7;
+}
+
+
+.remove-button:hover {
+  color: #c0392b;
+  border-color: #F6BCA9;
+}
+
+.remove-button:active {
+  background-color: #FBDECF;
+  border-color: #c0392b;
+}
+
+@media (max-width: 770px) {
+  .main {
+    flex-direction: column;
+  }
+}

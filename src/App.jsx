@@ -48,6 +48,8 @@ function App() {
     setCurrentPokemonUrl(url);
   }, []);
 
+  if (!currentPokemon) return <NotFound label="Try again later :c" />;
+
   return (
     <div className="App">
       <div className="main">
@@ -55,11 +57,7 @@ function App() {
           <>
             <CurrentPokemon>
               <PokemonPrimaryImg
-                imageUrl={
-                  currentPokemon
-                    ? currentPokemon.sprites.front_default
-                    : undefined
-                }
+                imageUrl={currentPokemon.sprites.front_default}
                 name={currentPokemon.name}
               />
             </CurrentPokemon>

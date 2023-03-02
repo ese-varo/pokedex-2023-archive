@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { archive } from "../features/pokemonSlice";
+import RemoveButton from "./RemoveButton";
 
 const PokemonList = ({ onClick }) => {
   const pokemons = useSelector((state) => state.pokemons.items);
@@ -17,19 +18,14 @@ const PokemonList = ({ onClick }) => {
   return (
     <div className="pokemon-list">
       {pokemons.map((pokemon) => (
-        <div key={pokemon.name} className="pokemon-thumbnail">
+        <div key={pokemon.name} className="pokemon-thumbnail card">
           <button
-            className="details-btn"
+            className="details-button"
             onClick={(e) => handleOnClick(e.detail, pokemon)}
           >
             {pokemon.name}
           </button>
-          <button
-            className="remove-btn"
-            onClick={() => dispatch(archive(pokemon.name))}
-          >
-            remove
-          </button>
+          <RemoveButton onClick={() => dispatch(archive(pokemon.name))} />
         </div>
       ))}
     </div>
