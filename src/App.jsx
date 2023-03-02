@@ -60,6 +60,7 @@ function App() {
                 imageUrl={currentPokemon.sprites.front_default}
                 name={currentPokemon.name}
               />
+              <p className="current-pokemon-name">{currentPokemon.name}</p>
             </CurrentPokemon>
             <PokemonList onClick={onClick} />
           </>

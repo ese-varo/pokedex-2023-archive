@@ -8,11 +8,19 @@ const Paginator = () => {
 
   return (
     <div className="paginator">
-      <button onClick={() => dispatch(decrementPage())} disabled={page < 2}>
+      <button
+        className="paginator-prev-button"
+        onClick={() => dispatch(decrementPage())}
+        disabled={page < 2}
+      >
         <FaAngleDoubleLeft />
       </button>
       <p className="paginator-label">{page} of 8</p>
-      <button onClick={() => dispatch(incrementPage())} disabled={page > 7}>
+      <button
+        className="paginator-next-button"
+        onClick={() => dispatch(incrementPage())}
+        disabled={page > 7}
+      >
         <FaAngleDoubleRight />
       </button>
     </div>
