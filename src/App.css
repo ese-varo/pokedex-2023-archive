@@ -50,6 +50,26 @@
   border-color: transparent;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 2em 0;
+}
+
+.footer-text {
+  color: #7f8c8d;
+}
+
+.footer-text--copy {
+  color: #34495e;
+}
+
+.heart-icon {
+  color: #EA6354;
+  height: 1.5em;
+  width: 1.5em;
+}
+
 .current-pokemon {
   flex: 2;
   box-shadow: 0 1px 15px 7px rgb(0 0 0 / 5%);
