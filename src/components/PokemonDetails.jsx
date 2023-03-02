@@ -20,6 +20,7 @@ const PokemonDetails = () => {
     };
 
     getPokemon();
+    // throw new Error("Something wrong happend"); // Uncomment this line to test Error Boundary
   }, [pokemonName]);
 
   if (!pokemon) {
