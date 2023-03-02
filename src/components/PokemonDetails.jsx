@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { baseUrl } from "../App";
+import { getThumbnailUrl } from "../helpers.js";
 
 const PokemonDetails = () => {
   const { pokemonName } = useParams();
@@ -27,8 +28,8 @@ const PokemonDetails = () => {
       <h2>Pokemon Details</h2>
       <p>Pokemon name {pokemon.name}</p>
 
-      <img // Todo Add carousel
-        src={pokemon.sprites.front_default}
+      <img
+        src={getThumbnailUrl(pokemon.sprites.front_default)}
         alt={`Pokemon ${pokemon.name}`}
       />
       <p>Base Experience: {pokemon.base_experience}</p>

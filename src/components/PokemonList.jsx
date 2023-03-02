@@ -15,9 +15,9 @@ const PokemonList = ({ onClick }) => {
   };
 
   return (
-    <ul className="pokemon-list">
+    <div className="pokemon-list">
       {pokemons.map((pokemon) => (
-        <li key={pokemon.name} className="pokemon-thumbnail">
+        <div key={pokemon.name} className="pokemon-thumbnail">
           <button
             className="details-btn"
             onClick={(e) => handleOnClick(e.detail, pokemon)}
@@ -30,9 +30,9 @@ const PokemonList = ({ onClick }) => {
           >
             remove
           </button>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 

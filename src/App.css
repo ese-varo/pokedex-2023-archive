@@ -1,6 +1,18 @@
 #root {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   text-align: center;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container {
+  margin: auto;
+  width: 100%;
 }
 
 .App {
@@ -13,9 +25,11 @@
   background-color: aqua;
   align-items: center;
   margin: 0 auto;
+  width: 100%;
   max-width: 1020px;
+  min-height: 800px;
   justify-content: space-between;
-  padding: 2rem;
+  gap: 2rem;
 }
 
 .paginator {
@@ -28,21 +42,28 @@
   flex: 2;
 }
 
+.current-pokemon > img {
+  width: 100%;
+  max-width: 290px;
+  min-width: 200px;
+}
+
 .pokemon-list {
-  /* background-color: antiquewhite; */
   width: 100%;
   list-style: none;
   display: flex;
-  flex-direction: column;
   gap: 1rem;
   flex: 3;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .pokemon-thumbnail {
   display: flex;
-}
-
-.details-btn {
-  /* width: 100%; */
+  flex-direction: column;
+  padding: 1rem;
+  border: solid 1px blue;
+  width: 100px;
+  height: 100px;
 }
 

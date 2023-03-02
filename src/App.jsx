@@ -14,9 +14,6 @@ function App() {
   const [currentPokemonUrl, setCurrentPokemonUrl] = useState(null);
   const { page, items } = useSelector((state) => state.pokemons);
 
-  // oscar.martinez@densitylabs.io
-  // styles improve UI/UX
-
   useEffect(() => {
     let url = baseUrl;
     if (page !== 1) {

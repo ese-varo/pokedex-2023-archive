@@ -1,4 +1,4 @@
-const NotFound = ({ title = "Something went wrong! ", label }) => {
+const NotFound = ({ title = "Something went wrong!", label }) => {
   return (
     <div>
       <h3>{title}</h3>
