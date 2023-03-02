@@ -1,22 +1,5 @@
-import { useEffect, useState } from "react";
-import { getThumbnailUrl } from "../helpers";
-
-const CurrentPokemon = ({ imageUrl }) => {
-  const [url, setUrl] = useState("");
-
-  useEffect(() => {
-    if (imageUrl) {
-      setUrl(getThumbnailUrl(imageUrl));
-    }
-  }, [imageUrl]);
-
-  if (!imageUrl) return null;
-
-  return (
-    <div className="current-pokemon">
-      <img src={url} alt="Current Pokemon" />
-    </div>
-  );
+const CurrentPokemon = ({ children }) => {
+  return <div className="current-pokemon">{children}</div>;
 };
 
 export default CurrentPokemon;
