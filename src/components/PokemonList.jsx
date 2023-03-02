@@ -20,7 +20,7 @@ const PokemonList = ({ onClick }) => {
       {pokemons.map((pokemon) => (
         <div key={pokemon.name} className="pokemon-thumbnail card">
           <button
-            className="details-button"
+            className="primary-button"
             onClick={(e) => handleOnClick(e.detail, pokemon)}
           >
             {pokemon.name}
